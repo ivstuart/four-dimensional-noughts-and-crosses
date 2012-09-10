@@ -1,0 +1,158 @@
+<HTML>
+<TITLE>Ivans Noughts And Crosses</TITLE>
+<HEAD>
+<link rel="stylesheet" href="style.css">
+
+<SCRIPT language="javascript" src="clever.js">
+</SCRIPT>
+</HEAD>
+<h1>3D - Noughts & Crosses<h1>
+
+<BODY onLoad="init();">
+
+<table class="arena">
+<td>
+<table class="board">
+<tr>
+<td class="cell top left"><img src="blank.gif" onclick="makeMove(0,0,0,true)"></td>
+<td class="cell top"><img src="blank.gif" onclick="makeMove(1,0,0,true)"></td>
+<td class="cell top"><img src="blank.gif" onclick="makeMove(2,0,0,true)"></td>
+<td class="cell top right"><img src="blank.gif" onclick="makeMove(3,0,0,true)"></td>
+</tr>
+<tr>
+<td class="cell left"><img src="blank.gif" onclick="makeMove(0,1,0,true)"></td>
+<td class="cell"><img src="blank.gif" onclick="makeMove(1,1,0,true)"></td>
+<td class="cell"><img src="blank.gif" onclick="makeMove(2,1,0,true)"></td>
+<td class="cell right"><img src="blank.gif" onclick="makeMove(3,1,0,true)"></td>
+</tr>
+<tr>
+<td class="cell left"><img src="blank.gif" onclick="makeMove(0,2,0,true)"></td>
+<td class="cell"><img src="blank.gif" onclick="makeMove(1,2,0,true)"></td>
+<td class="cell"><img src="blank.gif" onclick="makeMove(2,2,0,true)"></td>
+<td class="cell right"><img src="blank.gif" onclick="makeMove(3,2,0,true)"></td>
+</tr>
+<tr>
+<td class="cell bottom left"><img src="blank.gif" onclick="makeMove(0,3,0,true)"></td>
+<td class="cell bottom"><img src="blank.gif" onclick="makeMove(1,3,0,true)"></td>
+<td class="cell bottom"><img src="blank.gif" onclick="makeMove(2,3,0,true)"></td>
+<td class="cell bottom right"><img src="blank.gif" onclick="makeMove(3,3,0,true)"></td>
+</tr></table>
+</td>
+<td>
+<table class="board">
+<tr>
+<td class="cell top left"><img src="blank.gif" onclick="makeMove(0,0,1,true)"></td>
+<td class="cell top"><img src="blank.gif" onclick="makeMove(1,0,1,true)"></td>
+<td class="cell top"><img src="blank.gif" onclick="makeMove(2,0,1,true)"></td>
+<td class="cell top right"><img src="blank.gif" onclick="makeMove(3,0,1,true)"></td>
+</tr>
+<tr>
+<td class="cell left"><img src="blank.gif" onclick="makeMove(0,1,1,true)"></td>
+<td class="cell"><img src="blank.gif" onclick="makeMove(1,1,1,true)"></td>
+<td class="cell"><img src="blank.gif" onclick="makeMove(2,1,1,true)"></td>
+<td class="cell right"><img src="blank.gif" onclick="makeMove(3,1,1,true)"></td>
+</tr>
+<tr>
+<td class="cell left"><img src="blank.gif" onclick="makeMove(0,2,1,true)"></td>
+<td class="cell"><img src="blank.gif" onclick="makeMove(1,2,1,true)"></td>
+<td class="cell"><img src="blank.gif" onclick="makeMove(2,2,1,true)"></td>
+<td class="cell right"><img src="blank.gif" onclick="makeMove(3,2,1,true)"></td>
+</tr>
+<tr>
+<td class="cell bottom left"><img src="blank.gif" onclick="makeMove(0,3,1,true)"></td>
+<td class="cell bottom"><img src="blank.gif" onclick="makeMove(1,3,1,true)"></td>
+<td class="cell bottom"><img src="blank.gif" onclick="makeMove(2,3,1,true)"></td>
+<td class="cell bottom right"><img src="blank.gif" onclick="makeMove(3,3,1,true)"></td>
+</tr></table>
+</td>
+
+<td class="Turn" width=160>
+<span class="start" id="startstop" onclick="toggleGame()">Start</span>
+<form name="setgame" id="setgame">
+<input type="radio" name="players" value="none"onclick="showAI()"> Computer<br>
+<input type="radio" name="players" value="one" onclick="showAI()"> One player<br>
+<input type="radio" name="players" value="two" checked onclick="hideAI()"> Two players<br>
+
+<div id="ai" style="display:none">Difficulty<br>
+<select name="difficulty">
+<option value="random">Level 0 (random)
+<option value="easy">Level 1 (easy)
+<option value="medium" selected>Level 2 (medium)
+<option value="hard">Level 3 (hard)
+<option value="impossible">Level 4 (impossible)
+</select>
+</div>
+</form>
+</td>
+
+<tr>
+<td>
+<table class="board">
+<tr>
+<td class="cell top left"><img src="blank.gif" onclick="makeMove(0,0,2,true)"></td>
+<td class="cell top"><img src="blank.gif" onclick="makeMove(1,0,2,true)"></td>
+<td class="cell top"><img src="blank.gif" onclick="makeMove(2,0,2,true)"></td>
+<td class="cell top right"><img src="blank.gif" onclick="makeMove(3,0,2,true)"></td>
+</tr>
+<tr>
+<td class="cell left"><img src="blank.gif" onclick="makeMove(0,1,2,true)"></td>
+<td class="cell"><img src="blank.gif" onclick="makeMove(1,1,2,true)"></td>
+<td class="cell"><img src="blank.gif" onclick="makeMove(2,1,2,true)"></td>
+<td class="cell right"><img src="blank.gif" onclick="makeMove(3,1,2,true)"></td>
+</tr>
+<tr>
+<td class="cell left"><img src="blank.gif" onclick="makeMove(0,2,2,true)"></td>
+<td class="cell"><img src="blank.gif" onclick="makeMove(1,2,2,true)"></td>
+<td class="cell"><img src="blank.gif" onclick="makeMove(2,2,2,true)"></td>
+<td class="cell right"><img src="blank.gif" onclick="makeMove(3,2,2,true)"></td>
+</tr>
+<tr>
+<td class="cell bottom left"><img src="blank.gif" onclick="makeMove(0,3,2,true)"></td>
+<td class="cell bottom"><img src="blank.gif" onclick="makeMove(1,3,2,true)"></td>
+<td class="cell bottom"><img src="blank.gif" onclick="makeMove(2,3,2,true)"></td>
+<td class="cell bottom right"><img src="blank.gif" onclick="makeMove(3,3,2,true)"></td>
+</tr></table>
+</td>
+<td>
+<table class="board">
+<tr>
+<td class="cell top left"><img src="blank.gif" onclick="makeMove(0,0,3,true)"></td>
+<td class="cell top"><img src="blank.gif" onclick="makeMove(1,0,3,true)"></td>
+<td class="cell top"><img src="blank.gif" onclick="makeMove(2,0,3,true)"></td>
+<td class="cell top right"><img src="blank.gif" onclick="makeMove(3,0,3,true)"></td>
+</tr>
+<tr>
+<td class="cell left"><img src="blank.gif" onclick="makeMove(0,1,3,true)"></td>
+<td class="cell"><img src="blank.gif" onclick="makeMove(1,1,3,true)"></td>
+<td class="cell"><img src="blank.gif" onclick="makeMove(2,1,3,true)"></td>
+<td class="cell right"><img src="blank.gif" onclick="makeMove(3,1,3,true)"></td>
+</tr>
+<tr>
+<td class="cell left"><img src="blank.gif" onclick="makeMove(0,2,3,true)"></td>
+<td class="cell"><img src="blank.gif" onclick="makeMove(1,2,3,true)"></td>
+<td class="cell"><img src="blank.gif" onclick="makeMove(2,2,3,true)"></td>
+<td class="cell right"><img src="blank.gif" onclick="makeMove(3,2,3,true)"></td>
+</tr>
+<tr>
+<td class="cell bottom left"><img src="blank.gif" onclick="makeMove(0,3,3,true)"></td>
+<td class="cell bottom"><img src="blank.gif" onclick="makeMove(1,3,3,true)"></td>
+<td class="cell bottom"><img src="blank.gif" onclick="makeMove(2,3,3,true)"></td>
+<td class="cell bottom right"><img src="blank.gif" onclick="makeMove(3,3,3,true)"></td>
+</tr></table>
+</td>
+<td class="Turn" ALIGN="center">
+<span class="Turn" id="playersturn">Player's Turn</span>
+<p></p>
+<div id="playerTurnWindow" ALIGN="center" style="display:none">
+<img name="TurnIcon" src="blank.gif" >
+</div>
+
+</td>
+</tr>
+</table>
+</BODY>
+</HTML>
+
+
+
+
